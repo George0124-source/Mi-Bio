@@ -3,33 +3,92 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Zyn0rX ツ — Portfolio Futurista</title>
+<title>Zyn0rX ツ — Portfolio Cyberpunk</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
 :root{
-  --bg:#0d1117; --card:rgba(22,27,34,0.95);
-  --accent:#58a6ff; --accent-hover:#1f6feb;
-  --text:#c9d1d9; --muted:#8b949e; --skill-bg:#21262d;
+  --bg:#0d1117;
+  --card:rgba(22,27,34,0.95);
+  --text:#c9d1d9;
+  --muted:#8b949e;
+  --skill-bg:#21262d;
 }
 
 *{box-sizing:border-box;font-family:'Inter',sans-serif;margin:0;padding:0;}
 body{background:var(--bg);color:var(--text);overflow-y:auto;}
 canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;pointer-events:none;}
-.card{background:var(--card); padding:40px; border-radius:16px; max-width:800px; width:90%; margin:60px auto; text-align:center; box-shadow:0 8px 30px rgba(0,0,0,0.7); backdrop-filter: blur(10px);}
-.card:hover{transform:scale(1.02);transition:0.3s;}
-.avatar{width:120px;height:120px;border-radius:50%;margin:0 auto 20px;transition:transform 0.3s;background-size:cover;background-position:center;}
+
+.card{
+  background: var(--card);
+  padding:40px;
+  border-radius:16px;
+  max-width:800px;
+  width:90%;
+  margin:60px auto;
+  text-align:center;
+  box-shadow:0 8px 30px rgba(0,0,0,0.7);
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s;
+}
+.card:hover{transform:scale(1.02);}
+
+.avatar{
+  width:120px;height:120px;border-radius:50%;margin:0 auto 20px;
+  transition:transform 0.3s;
+  background-size:cover;
+  background-position:center;
+}
 .avatar:hover{transform:scale(1.1) rotate(5deg);}
-h1{font-size:32px;margin-bottom:6px;}
+
+h1{
+  font-size:32px;
+  margin-bottom:6px;
+  background: linear-gradient(270deg, #58a6ff, #ff58e1, #1fffd1, #fffa58);
+  background-size: 600% 600%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientAnimation 8s ease infinite;
+}
+@keyframes gradientAnimation {
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
 p.bio{color:var(--muted);line-height:1.5;margin-bottom:20px;}
 .links{display:grid;gap:12px;margin-top:20px;}
-.btn{display:block;text-decoration:none;padding:12px;border-radius:12px;background:linear-gradient(90deg,var(--accent),var(--accent-hover));color:#000;font-weight:600;transition:all 0.3s;box-shadow:0 0 15px rgba(88,166,255,0.4);}
+.btn{
+  display:block;text-decoration:none;padding:12px;border-radius:12px;
+  background: linear-gradient(270deg, #58a6ff, #ff58e1, #1fffd1, #fffa58);
+  background-size: 600% 600%;
+  color:#000;font-weight:600;
+  transition: all 0.3s;
+  box-shadow:0 0 15px rgba(88,166,255,0.4);
+  animation: gradientAnimation 8s ease infinite;
+}
 .btn:hover{transform:scale(1.05);box-shadow:0 0 25px rgba(88,166,255,0.8);}
+
 .skills{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:25px;}
-.skill{background:var(--skill-bg);padding:8px 14px;border-radius:10px;font-weight:600;transition:all 0.3s;cursor:default;}
-.skill:hover{transform:scale(1.1);background:var(--accent-hover);color:#fff;}
+.skill{
+  background:var(--skill-bg);
+  padding:8px 14px;
+  border-radius:10px;
+  font-weight:600;
+  transition:all 0.3s;
+  cursor:default;
+}
+.skill:hover{transform:scale(1.1);background:#58a6ff;color:#000;}
+
 .section{margin-top:35px;text-align:left;}
-.section h2{color:var(--accent);margin-bottom:12px;}
+.section h2{
+  background: linear-gradient(270deg, #58a6ff, #ff58e1, #1fffd1, #fffa58);
+  background-size: 600% 600%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientAnimation 8s ease infinite;
+  margin-bottom:12px;
+}
 .section p{color:var(--text);margin-bottom:10px;line-height:1.4;}
 footer{margin-top:25px;font-size:12px;color:var(--muted); text-align:center;}
 </style>
@@ -70,15 +129,16 @@ footer{margin-top:25px;font-size:12px;color:var(--muted); text-align:center;}
 
   <div class="section">
     <h2>Sobre mí</h2>
-    <p>Soy Zyn0rX, un joven de 14 años apasionado por la programación, diseño web, bots de Discord y ciberseguridad. Me encanta aprender nuevas tecnologías, crear experiencias interactivas y optimizar servidores y páginas web.</p>
+    <p>Soy Zyn0rX, 14 años, apasionado por programación, diseño web, bots de Discord y ciberseguridad. Me encanta aprender nuevas tecnologías y crear experiencias interactivas para la comunidad.</p>
+    <p>Siempre busco mejorar mis habilidades, aprender de los proyectos y ayudar a otros con tecnología.</p>
   </div>
 
   <div class="section">
     <h2>Proyectos Destacados</h2>
     <p>- Creación y mantenimiento de servidores Discord con +1k usuarios activos.</p>
-    <p>- Desarrollo de bots personalizados para moderación y entretenimiento.</p>
+    <p>- Bots personalizados para moderación y entretenimiento.</p>
     <p>- Diseño de páginas web para comunidades y proyectos personales.</p>
-    <p>- Pequeños proyectos de ciberseguridad y scripting.</p>
+    <p>- Scripts de automatización y pequeños proyectos de ciberseguridad.</p>
   </div>
 
   <div class="section">
@@ -86,14 +146,14 @@ footer{margin-top:25px;font-size:12px;color:var(--muted); text-align:center;}
     <p>- Coordinador Staff 1/1 en VLRP.</p>
     <p>- Experiencia en moderación y gestión de comunidades grandes.</p>
     <p>- Participación en proyectos de UX/UI y desarrollo visual.</p>
-    <p>- Reconocido por crear soluciones rápidas y efectivas en servidores.</p>
+    <p>- Reconocido por soluciones rápidas y efectivas en servidores.</p>
   </div>
 
   <div class="section">
     <h2>Metas & Aspiraciones</h2>
     <p>- Seguir aprendiendo programación avanzada y ciberseguridad.</p>
     <p>- Crear mis propios bots y herramientas para Discord y web.</p>
-    <p>- Convertirme en un referente en tecnología para jóvenes.</p>
+    <p>- Ser un referente en tecnología para jóvenes y comunidades online.</p>
   </div>
 
   <footer>Última actualización: <span id="date"></span></footer>
@@ -104,7 +164,7 @@ footer{margin-top:25px;font-size:12px;color:var(--muted); text-align:center;}
 document.getElementById("pfp").style.backgroundImage = "url('https://media.discordapp.net/attachments/1355669514192290035/1447088623253192766/image.jpg?ex=693659cd&is=6935084d&hm=fca9852e3f7e950129178d22bbc0d6c982a299d20e91227f6b0d05398e67a245&=&format=png&width=462&height=1029')";
 document.getElementById("date").textContent = new Date().toLocaleDateString("es-ES");
 
-// Partículas conectadas (futurista)
+// Partículas conectadas neon
 const canvas=document.getElementById('particles');
 const ctx=canvas.getContext('2d'); let w,h;
 function resize(){ w=canvas.width=window.innerWidth; h=canvas.height=window.innerHeight;}
