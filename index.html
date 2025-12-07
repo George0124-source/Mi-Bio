@@ -3,15 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Zyn0rX ツ — Portfolio Cyberpunk</title>
+<title>Zyn0rX ツ — Portfolio Profesional</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
 :root{
   --bg:#0d1117;
   --card:rgba(22,27,34,0.95);
-  --text:#c9d1d9;
+  --text:#e1e4e8;
   --muted:#8b949e;
+  --accent:#58a6ff;
   --skill-bg:#21262d;
 }
 
@@ -31,7 +32,7 @@ canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;pointer-eve
   backdrop-filter: blur(10px);
   transition: transform 0.3s;
 }
-.card:hover{transform:scale(1.02);}
+.card:hover{transform:scale(1.01);}
 
 .avatar{
   width:120px;height:120px;border-radius:50%;margin:0 auto 20px;
@@ -39,35 +40,20 @@ canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;pointer-eve
   background-size:cover;
   background-position:center;
 }
-.avatar:hover{transform:scale(1.1) rotate(5deg);}
+.avatar:hover{transform:scale(1.05) rotate(2deg);}
 
-h1{
-  font-size:32px;
-  margin-bottom:6px;
-  background: linear-gradient(270deg, #58a6ff, #ff58e1, #1fffd1, #fffa58);
-  background-size: 600% 600%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: gradientAnimation 8s ease infinite;
-}
-@keyframes gradientAnimation {
-  0%{background-position:0% 50%;}
-  50%{background-position:100% 50%;}
-  100%{background-position:0% 50%;}
-}
-
+h1{font-size:32px;margin-bottom:6px;color:var(--accent);}
 p.bio{color:var(--muted);line-height:1.5;margin-bottom:20px;}
+
 .links{display:grid;gap:12px;margin-top:20px;}
 .btn{
   display:block;text-decoration:none;padding:12px;border-radius:12px;
-  background: linear-gradient(270deg, #58a6ff, #ff58e1, #1fffd1, #fffa58);
-  background-size: 600% 600%;
-  color:#000;font-weight:600;
+  background:var(--accent);
+  color:#fff;font-weight:600;
   transition: all 0.3s;
-  box-shadow:0 0 15px rgba(88,166,255,0.4);
-  animation: gradientAnimation 8s ease infinite;
+  box-shadow:0 0 10px rgba(88,166,255,0.2);
 }
-.btn:hover{transform:scale(1.05);box-shadow:0 0 25px rgba(88,166,255,0.8);}
+.btn:hover{transform:scale(1.05);box-shadow:0 0 20px rgba(88,166,255,0.4);}
 
 .skills{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:25px;}
 .skill{
@@ -78,18 +64,11 @@ p.bio{color:var(--muted);line-height:1.5;margin-bottom:20px;}
   transition:all 0.3s;
   cursor:default;
 }
-.skill:hover{transform:scale(1.1);background:#58a6ff;color:#000;}
+.skill:hover{transform:scale(1.05);background:#1f2a36;color:#fff;}
 
 .section{margin-top:35px;text-align:left;}
-.section h2{
-  background: linear-gradient(270deg, #58a6ff, #ff58e1, #1fffd1, #fffa58);
-  background-size: 600% 600%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: gradientAnimation 8s ease infinite;
-  margin-bottom:12px;
-}
-.section p{color:var(--text);margin-bottom:10px;line-height:1.4;}
+.section h2{color:var(--accent);margin-bottom:12px;font-weight:700;}
+.section p{color:var(--text);margin-bottom:10px;line-height:1.5;}
 footer{margin-top:25px;font-size:12px;color:var(--muted); text-align:center;}
 </style>
 </head>
@@ -115,30 +94,30 @@ footer{margin-top:25px;font-size:12px;color:var(--muted); text-align:center;}
 
   <h3 style="margin-top:30px;">Lenguajes & Skills</h3>
   <div class="skills">
-    <div class="skill">Python 🐍</div>
-    <div class="skill">C++ ⚡</div>
-    <div class="skill">JavaScript 💻</div>
-    <div class="skill">Discord Bots 🤖</div>
-    <div class="skill">Web Design 🌐</div>
-    <div class="skill">Moderación ✅</div>
-    <div class="skill">UI/UX 🎨</div>
-    <div class="skill">Bases de datos 🗄️</div>
-    <div class="skill">Ciberseguridad 🔒</div>
-    <div class="skill">Animaciones CSS ✨</div>
+    <div class="skill">Python</div>
+    <div class="skill">C++</div>
+    <div class="skill">JavaScript</div>
+    <div class="skill">Discord Bots</div>
+    <div class="skill">Web Design</div>
+    <div class="skill">Moderación</div>
+    <div class="skill">UI/UX</div>
+    <div class="skill">Bases de datos</div>
+    <div class="skill">Ciberseguridad</div>
+    <div class="skill">Animaciones CSS</div>
   </div>
 
   <div class="section">
     <h2>Sobre mí</h2>
-    <p>Soy Zyn0rX, 14 años, apasionado por programación, diseño web, bots de Discord y ciberseguridad. Me encanta aprender nuevas tecnologías y crear experiencias interactivas para la comunidad.</p>
-    <p>Siempre busco mejorar mis habilidades, aprender de los proyectos y ayudar a otros con tecnología.</p>
+    <p>Soy Zyn0rX, 14 años, apasionado por programación, diseño web, bots de Discord y ciberseguridad. Me encanta aprender nuevas tecnologías y crear experiencias interactivas para comunidades online.</p>
+    <p>Me considero responsable, profesional y enfocado en ofrecer soluciones eficientes.</p>
   </div>
 
   <div class="section">
     <h2>Proyectos Destacados</h2>
     <p>- Creación y mantenimiento de servidores Discord con +1k usuarios activos.</p>
     <p>- Bots personalizados para moderación y entretenimiento.</p>
-    <p>- Diseño de páginas web para comunidades y proyectos personales.</p>
-    <p>- Scripts de automatización y pequeños proyectos de ciberseguridad.</p>
+    <p>- Diseño de páginas web profesionales para proyectos personales y comunidades.</p>
+    <p>- Proyectos de scripting y ciberseguridad básicos.</p>
   </div>
 
   <div class="section">
@@ -146,14 +125,14 @@ footer{margin-top:25px;font-size:12px;color:var(--muted); text-align:center;}
     <p>- Coordinador Staff 1/1 en VLRP.</p>
     <p>- Experiencia en moderación y gestión de comunidades grandes.</p>
     <p>- Participación en proyectos de UX/UI y desarrollo visual.</p>
-    <p>- Reconocido por soluciones rápidas y efectivas en servidores.</p>
+    <p>- Reconocido por soluciones rápidas y efectivas.</p>
   </div>
 
   <div class="section">
     <h2>Metas & Aspiraciones</h2>
     <p>- Seguir aprendiendo programación avanzada y ciberseguridad.</p>
-    <p>- Crear mis propios bots y herramientas para Discord y web.</p>
-    <p>- Ser un referente en tecnología para jóvenes y comunidades online.</p>
+    <p>- Crear herramientas y bots profesionales para Discord y web.</p>
+    <p>- Convertirme en referente de tecnología para jóvenes y comunidades.</p>
   </div>
 
   <footer>Última actualización: <span id="date"></span></footer>
@@ -164,18 +143,18 @@ footer{margin-top:25px;font-size:12px;color:var(--muted); text-align:center;}
 document.getElementById("pfp").style.backgroundImage = "url('https://media.discordapp.net/attachments/1355669514192290035/1447088623253192766/image.jpg?ex=693659cd&is=6935084d&hm=fca9852e3f7e950129178d22bbc0d6c982a299d20e91227f6b0d05398e67a245&=&format=png&width=462&height=1029')";
 document.getElementById("date").textContent = new Date().toLocaleDateString("es-ES");
 
-// Partículas conectadas neon
+// Partículas discretas
 const canvas=document.getElementById('particles');
 const ctx=canvas.getContext('2d'); let w,h;
 function resize(){ w=canvas.width=window.innerWidth; h=canvas.height=window.innerHeight;}
 window.addEventListener('resize', resize); resize();
 class Particle{
-constructor(){this.x=Math.random()*w; this.y=Math.random()*h; this.vx=(Math.random()-0.5)*0.8; this.vy=(Math.random()-0.5)*0.8; this.size=Math.random()*2+1.2;}
+constructor(){this.x=Math.random()*w; this.y=Math.random()*h; this.vx=(Math.random()-0.5)*0.3; this.vy=(Math.random()-0.5)*0.3; this.size=Math.random()*1.5+0.5;}
 move(){this.x+=this.vx; this.y+=this.vy; if(this.x<0||this.x>w)this.vx*=-1; if(this.y<0||this.y>h)this.vy*=-1;}
-draw(){ctx.beginPath(); ctx.arc(this.x,this.y,this.size,0,Math.PI*2); ctx.fillStyle='rgba(88,166,255,0.7)'; ctx.fill();}
+draw(){ctx.beginPath(); ctx.arc(this.x,this.y,this.size,0,Math.PI*2); ctx.fillStyle='rgba(88,166,255,0.2)'; ctx.fill();}
 }
-const particlesArray=[]; for(let i=0;i<150;i++) particlesArray.push(new Particle());
-function connectParticles(){for(let a=0;a<particlesArray.length;a++){for(let b=a+1;b<particlesArray.length;b++){let dx=particlesArray[a].x-particlesArray[b].x; let dy=particlesArray[a].y-particlesArray[b].y; let dist=Math.sqrt(dx*dx+dy*dy); if(dist<120){ctx.beginPath(); ctx.strokeStyle='rgba(88,166,255,'+(1-dist/120)*0.5+')'; ctx.lineWidth=1; ctx.moveTo(particlesArray[a].x,particlesArray[a].y); ctx.lineTo(particlesArray[b].x,particlesArray[b].y); ctx.stroke();}}}}
+const particlesArray=[]; for(let i=0;i<120;i++) particlesArray.push(new Particle());
+function connectParticles(){for(let a=0;a<particlesArray.length;a++){for(let b=a+1;b<particlesArray.length;b++){let dx=particlesArray[a].x-particlesArray[b].x; let dy=particlesArray[a].y-particlesArray[b].y; let dist=Math.sqrt(dx*dx+dy*dy); if(dist<100){ctx.beginPath(); ctx.strokeStyle='rgba(88,166,255,'+(1-dist/100)*0.1+')'; ctx.lineWidth=1; ctx.moveTo(particlesArray[a].x,particlesArray[a].y); ctx.lineTo(particlesArray[b].x,particlesArray[b].y); ctx.stroke();}}}}
 function animate(){ctx.clearRect(0,0,w,h); particlesArray.forEach(p=>{p.move();p.draw();}); connectParticles(); requestAnimationFrame(animate);}
 animate();
 </script>
