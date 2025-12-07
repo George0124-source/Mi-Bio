@@ -58,7 +58,7 @@ p.bio{color:var(--muted);line-height:1.5;margin-bottom:20px;}
   transition: all 0.3s;
   box-shadow:0 0 10px rgba(88,166,255,0.2);
 }
-.btn:hover{transform:scale(1.05);box-shadow:0 0 20px rgba(88,166,255,0.4);}
+.btn:hover{transform:scale(1.05);box-shadow:0 0 20px rgba(88,166,255,0.6);}
 
 .skills{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:25px;}
 .skill{
@@ -104,17 +104,44 @@ p.bio{color:var(--muted);line-height:1.5;margin-bottom:20px;}
 .section h2{color:var(--accent);margin-bottom:12px;font-weight:700;}
 .section p{color:var(--text);margin-bottom:10px;line-height:1.5;}
 
-/* Proyectos animados */
+/* Proyectos animados con modal */
 .project-card{
   background:var(--skill-bg);
   border-radius:12px;
   padding:15px 20px;
   margin:10px 0;
   transition: transform 0.3s, box-shadow 0.3s;
+  cursor:pointer;
 }
 .project-card:hover{
   transform:translateY(-5px);
-  box-shadow:0 8px 20px rgba(88,166,255,0.3);
+  box-shadow:0 10px 25px rgba(88,166,255,0.4);
+}
+
+.modal{
+  display:none;
+  position:fixed;
+  top:0; left:0; width:100%; height:100%;
+  background:rgba(0,0,0,0.8);
+  justify-content:center; align-items:center;
+  z-index:999;
+}
+.modal-content{
+  background:var(--card);
+  padding:30px;
+  border-radius:16px;
+  max-width:600px;
+  width:90%;
+  text-align:left;
+  position:relative;
+}
+.close-btn{
+  position:absolute;
+  top:15px;
+  right:15px;
+  color:#fff;
+  cursor:pointer;
+  font-size:18px;
 }
 
 footer{margin-top:25px;font-size:12px;color:var(--muted); text-align:center;}
@@ -160,22 +187,15 @@ footer{margin-top:25px;font-size:12px;color:var(--muted); text-align:center;}
     <p>Soy Zyn0rX, 14 años, apasionado por programación, diseño web, bots de Discord y ciberseguridad. Me encanta aprender nuevas tecnologías y crear experiencias interactivas para comunidades online.</p>
     <p>Responsable, profesional y orientado a resultados, siempre enfocado en soluciones eficientes.</p>
     <p>Me motiva enseñar a otros, explorar nuevos frameworks y crear proyectos que combinen diseño y funcionalidad.</p>
+    <p>Intereses extra: gaming, tecnología, desarrollo visual, animaciones, y ayudar a jóvenes a iniciarse en programación.</p>
   </div>
 
   <div class="section">
     <h2>Proyectos Destacados</h2>
-    <div class="project-card">
-      <strong>Bots de Discord:</strong> Moderación, minijuegos, roles automáticos y sistemas de reputación.
-    </div>
-    <div class="project-card">
-      <strong>Servidores:</strong> Gestión de comunidades +1k usuarios con reglas y moderación avanzada.
-    </div>
-    <div class="project-card">
-      <strong>Web:</strong> Páginas web profesionales y portfolios visuales interactivos.
-    </div>
-    <div class="project-card">
-      <strong>Scripts:</strong> Automatización de tareas y pruebas de seguridad básicas.
-    </div>
+    <div class="project-card" data-title="Bots de Discord" data-desc="Moderación, minijuegos, roles automáticos y sistemas de reputación, con comandos avanzados y gestión de comunidades grandes.">Bots de Discord</div>
+    <div class="project-card" data-title="Servidores VLRP" data-desc="Gestión de comunidades +1k usuarios con reglas, roles y sistemas de moderación avanzada.">Servidores VLRP</div>
+    <div class="project-card" data-title="Web & Portfolios" data-desc="Diseño y desarrollo de páginas web profesionales y portfolios interactivos, UX/UI optimizado.">Web & Portfolios</div>
+    <div class="project-card" data-title="Scripts y Automatización" data-desc="Automatización de tareas y pruebas de seguridad básicas en entornos controlados.">Scripts y Automatización</div>
   </div>
 
   <div class="section">
@@ -185,6 +205,7 @@ footer{margin-top:25px;font-size:12px;color:var(--muted); text-align:center;}
     <p>- Participación activa en proyectos de UX/UI y desarrollo visual.</p>
     <p>- Reconocido por soluciones rápidas y efectivas en servidores y bots.</p>
     <p>- Reconocimientos internos por liderazgo y eficiencia en proyectos online.</p>
+    <p>- Experiencia organizando y coordinando eventos de la comunidad.</p>
   </div>
 
   <div class="section">
@@ -193,9 +214,19 @@ footer{margin-top:25px;font-size:12px;color:var(--muted); text-align:center;}
     <p>- Crear herramientas y bots profesionales de alta calidad para Discord y web.</p>
     <p>- Convertirme en un referente de tecnología para jóvenes y comunidades online.</p>
     <p>- Expandir mi portfolio con proyectos profesionales que combinen diseño y código.</p>
+    <p>- Explorar animación avanzada y desarrollo visual interactivo.</p>
   </div>
 
   <footer>Última actualización: <span id="date"></span></footer>
+</div>
+
+<!-- Modal -->
+<div class="modal" id="projectModal">
+  <div class="modal-content">
+    <span class="close-btn" id="closeModal">&times;</span>
+    <h2 id="modalTitle"></h2>
+    <p id="modalDesc"></p>
+  </div>
 </div>
 
 <script>
@@ -203,18 +234,18 @@ footer{margin-top:25px;font-size:12px;color:var(--muted); text-align:center;}
 document.getElementById("pfp").style.backgroundImage = "url('https://media.discordapp.net/attachments/1355669514192290035/1447088623253192766/image.jpg?ex=693659cd&is=6935084d&hm=fca9852e3f7e950129178d22bbc0d6c982a299d20e91227f6b0d05398e67a245&=&format=png&width=462&height=1029')";
 document.getElementById("date").textContent = new Date().toLocaleDateString("es-ES");
 
-// Partículas discretas
+// Partículas más visibles
 const canvas=document.getElementById('particles');
 const ctx=canvas.getContext('2d'); let w,h;
 function resize(){ w=canvas.width=window.innerWidth; h=canvas.height=window.innerHeight;}
 window.addEventListener('resize', resize); resize();
 class Particle{
-constructor(){this.x=Math.random()*w; this.y=Math.random()*h; this.vx=(Math.random()-0.5)*0.3; this.vy=(Math.random()-0.5)*0.3; this.size=Math.random()*1.5+0.5;}
+constructor(){this.x=Math.random()*w; this.y=Math.random()*h; this.vx=(Math.random()-0.5)*0.8; this.vy=(Math.random()-0.5)*0.8; this.size=Math.random()*2+1;}
 move(){this.x+=this.vx; this.y+=this.vy; if(this.x<0||this.x>w)this.vx*=-1; if(this.y<0||this.y>h)this.vy*=-1;}
-draw(){ctx.beginPath(); ctx.arc(this.x,this.y,this.size,0,Math.PI*2); ctx.fillStyle='rgba(88,166,255,0.15)'; ctx.fill();}
+draw(){ctx.beginPath(); ctx.arc(this.x,this.y,this.size,0,Math.PI*2); ctx.fillStyle='rgba(88,166,255,0.3)'; ctx.fill();}
 }
-const particlesArray=[]; for(let i=0;i<120;i++) particlesArray.push(new Particle());
-function connectParticles(){for(let a=0;a<particlesArray.length;a++){for(let b=a+1;b<particlesArray.length;b++){let dx=particlesArray[a].x-particlesArray[b].x; let dy=particlesArray[a].y-particlesArray[b].y; let dist=Math.sqrt(dx*dx+dy*dy); if(dist<100){ctx.beginPath(); ctx.strokeStyle='rgba(88,166,255,'+(1-dist/100)*0.08+')'; ctx.lineWidth=1; ctx.moveTo(particlesArray[a].x,particlesArray[a].y); ctx.lineTo(particlesArray[b].x,particlesArray[b].y); ctx.stroke();}}}}
+const particlesArray=[]; for(let i=0;i<200;i++) particlesArray.push(new Particle());
+function connectParticles(){for(let a=0;a<particlesArray.length;a++){for(let b=a+1;b<particlesArray.length;b++){let dx=particlesArray[a].x-particlesArray[b].x; let dy=particlesArray[a].y-particlesArray[b].y; let dist=Math.sqrt(dx*dx+dy*dy); if(dist<120){ctx.beginPath(); ctx.strokeStyle='rgba(88,166,255,'+(1-dist/120)*0.12+')'; ctx.lineWidth=1; ctx.moveTo(particlesArray[a].x,particlesArray[a].y); ctx.lineTo(particlesArray[b].x,particlesArray[b].y); ctx.stroke();}}}}
 function animate(){ctx.clearRect(0,0,w,h); particlesArray.forEach(p=>{p.move();p.draw();}); connectParticles(); requestAnimationFrame(animate);}
 animate();
 
@@ -230,6 +261,23 @@ function checkVisibility() {
 }
 window.addEventListener('scroll', checkVisibility);
 checkVisibility();
+
+// Modal proyectos
+const projectCards=document.querySelectorAll('.project-card');
+const modal=document.getElementById('projectModal');
+const modalTitle=document.getElementById('modalTitle');
+const modalDesc=document.getElementById('modalDesc');
+const closeModal=document.getElementById('closeModal');
+
+projectCards.forEach(card=>{
+  card.addEventListener('click',()=>{
+    modalTitle.textContent=card.dataset.title;
+    modalDesc.textContent=card.dataset.desc;
+    modal.style.display='flex';
+  });
+});
+closeModal.addEventListener('click',()=>{modal.style.display='none';});
+window.addEventListener('click',e=>{if(e.target==modal) modal.style.display='none';});
 </script>
 
 </body>
