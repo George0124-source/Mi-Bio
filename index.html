@@ -6,48 +6,33 @@
 <title>Zyn0rX ツ — Portfolio Futurista</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
-
-:root {
-  --bg:#0d1117;
-  --card:rgba(22,27,34,0.95);
-  --accent:#58a6ff;
-  --accent-hover:#1f6feb;
-  --text:#c9d1d9;
-  --muted:#8b949e;
-  --skill-bg:#21262d;
+:root{
+--bg:#0d1117; --card:rgba(22,27,34,0.95);
+--accent:#58a6ff; --accent-hover:#1f6feb;
+--text:#c9d1d9; --muted:#8b949e; --skill-bg:#21262d;
 }
-
 *{box-sizing:border-box;font-family:'Inter',sans-serif;margin:0;padding:0;}
 body{background:var(--bg);color:var(--text);overflow:hidden;}
 canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;}
-.card{
-  background: var(--card); padding:40px; border-radius:16px;
-  max-width:750px; width:90%; margin:60px auto; text-align:center;
-  box-shadow:0 8px 30px rgba(0,0,0,0.7); backdrop-filter: blur(10px);
-  transition: transform 0.3s;
-}
-.card:hover{transform: scale(1.02);}
-.avatar{width:120px;height:120px;border-radius:50%;margin:0 auto 20px;
-  transition: transform 0.3s; background-size:cover; background-position:center;}
-.avatar:hover{transform: scale(1.1) rotate(5deg);}
+.card{background:var(--card); padding:40px; border-radius:16px; max-width:800px; width:90%; margin:60px auto; text-align:center; box-shadow:0 8px 30px rgba(0,0,0,0.7); backdrop-filter: blur(10px);}
+.card:hover{transform:scale(1.02);transition:0.3s;}
+.avatar{width:120px;height:120px;border-radius:50%;margin:0 auto 20px;transition:transform 0.3s;background-size:cover;background-position:center;}
+.avatar:hover{transform:scale(1.1) rotate(5deg);}
 h1{font-size:32px;margin-bottom:6px;}
 p.bio{color:var(--muted);line-height:1.5;margin-bottom:20px;}
 .links{display:grid;gap:12px;margin-top:20px;}
-.btn{
-  display:block;text-decoration:none;padding:12px;border-radius:12px;
-  background: linear-gradient(90deg,var(--accent),var(--accent-hover));
-  color:#000;font-weight:600;transition: all 0.3s; box-shadow:0 0 15px rgba(88,166,255,0.4);}
-.btn:hover{transform: scale(1.05); box-shadow:0 0 25px rgba(88,166,255,0.8);}
+.btn{display:block;text-decoration:none;padding:12px;border-radius:12px;background:linear-gradient(90deg,var(--accent),var(--accent-hover));color:#000;font-weight:600;transition:all 0.3s;box-shadow:0 0 15px rgba(88,166,255,0.4);}
+.btn:hover{transform:scale(1.05);box-shadow:0 0 25px rgba(88,166,255,0.8);}
 .skills{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:25px;}
-.skill{
-  background:var(--skill-bg);padding:8px 14px;border-radius:10px;font-weight:600;
-  transition: all 0.3s; cursor:default;}
-.skill:hover{transform: scale(1.1); background: var(--accent-hover); color:#fff;}
+.skill{background:var(--skill-bg);padding:8px 14px;border-radius:10px;font-weight:600;transition:all 0.3s;cursor:default;}
+.skill:hover{transform:scale(1.1);background:var(--accent-hover);color:#fff;}
+.section{margin-top:35px;text-align:left;}
+.section h2{color:var(--accent);margin-bottom:12px;}
+.section p{color:var(--text);margin-bottom:10px;line-height:1.4;}
 footer{margin-top:25px;font-size:12px;color:var(--muted);}
 </style>
 </head>
 <body>
-
 <canvas id="particles"></canvas>
 
 <div class="card">
@@ -78,6 +63,25 @@ footer{margin-top:25px;font-size:12px;color:var(--muted);}
     <div class="skill">UI/UX 🎨</div>
   </div>
 
+  <div class="section">
+    <h2>Sobre mí</h2>
+    <p>Soy Zyn0rX, un joven de 15 años apasionado por la programación, diseño web y Discord. Me encanta aprender nuevas tecnologías y crear bots, servidores y experiencias interactivas.</p>
+  </div>
+
+  <div class="section">
+    <h2>Proyectos Destacados</h2>
+    <p>- Creación y mantenimiento de servidores Discord con +1k usuarios activos.</p>
+    <p>- Desarrollo de bots personalizados para moderación y entretenimiento.</p>
+    <p>- Diseño de páginas web para comunidades y proyectos personales.</p>
+  </div>
+
+  <div class="section">
+    <h2>Logros / Experiencia</h2>
+    <p>- Coordinador Staff 1/1 en VLRP.</p>
+    <p>- Experiencia en moderación y gestión de comunidades grandes.</p>
+    <p>- Participación en proyectos de UX/UI y desarrollo visual.</p>
+  </div>
+
   <footer>Última actualización: <span id="date"></span></footer>
 </div>
 
@@ -86,62 +90,19 @@ footer{margin-top:25px;font-size:12px;color:var(--muted);}
 document.getElementById("pfp").style.backgroundImage = "url('https://media.discordapp.net/attachments/1355669514192290035/1447088623253192766/image.jpg?ex=693659cd&is=6935084d&hm=fca9852e3f7e950129178d22bbc0d6c982a299d20e91227f6b0d05398e67a245&=&format=png&width=462&height=1029')";
 document.getElementById("date").textContent = new Date().toLocaleDateString("es-ES");
 
-// Partículas con líneas conectadas
-const canvas = document.getElementById('particles');
-const ctx = canvas.getContext('2d');
-let w, h;
+// Partículas conectadas
+const canvas=document.getElementById('particles');
+const ctx=canvas.getContext('2d'); let w,h;
 function resize(){ w=canvas.width=window.innerWidth; h=canvas.height=window.innerHeight;}
-window.addEventListener('resize', resize);
-resize();
-
-class Particle {
-  constructor(){
-    this.x=Math.random()*w;
-    this.y=Math.random()*h;
-    this.vx=(Math.random()-0.5)*0.8;
-    this.vy=(Math.random()-0.5)*0.8;
-    this.size=Math.random()*2+1.2;
-  }
-  move(){
-    this.x+=this.vx; this.y+=this.vy;
-    if(this.x<0||this.x>w) this.vx*=-1;
-    if(this.y<0||this.y>h) this.vy*=-1;
-  }
-  draw(){
-    ctx.beginPath();
-    ctx.arc(this.x,this.y,this.size,0,Math.PI*2);
-    ctx.fillStyle='rgba(88,166,255,0.7)';
-    ctx.fill();
-  }
+window.addEventListener('resize', resize); resize();
+class Particle{
+constructor(){this.x=Math.random()*w; this.y=Math.random()*h; this.vx=(Math.random()-0.5)*0.8; this.vy=(Math.random()-0.5)*0.8; this.size=Math.random()*2+1.2;}
+move(){this.x+=this.vx; this.y+=this.vy; if(this.x<0||this.x>w)this.vx*=-1; if(this.y<0||this.y>h)this.vy*=-1;}
+draw(){ctx.beginPath(); ctx.arc(this.x,this.y,this.size,0,Math.PI*2); ctx.fillStyle='rgba(88,166,255,0.7)'; ctx.fill();}
 }
-
-const particlesArray=[];
-for(let i=0;i<120;i++) particlesArray.push(new Particle());
-
-function connectParticles(){
-  for(let a=0;a<particlesArray.length;a++){
-    for(let b=a+1;b<particlesArray.length;b++){
-      let dx=particlesArray[a].x - particlesArray[b].x;
-      let dy=particlesArray[a].y - particlesArray[b].y;
-      let dist=Math.sqrt(dx*dx + dy*dy);
-      if(dist<100){
-        ctx.beginPath();
-        ctx.strokeStyle='rgba(88,166,255,'+(1-dist/100)*0.5+')';
-        ctx.lineWidth=1;
-        ctx.moveTo(particlesArray[a].x,particlesArray[a].y);
-        ctx.lineTo(particlesArray[b].x,particlesArray[b].y);
-        ctx.stroke();
-      }
-    }
-  }
-}
-
-function animate(){
-  ctx.clearRect(0,0,w,h);
-  particlesArray.forEach(p=>{p.move();p.draw();});
-  connectParticles();
-  requestAnimationFrame(animate);
-}
+const particlesArray=[]; for(let i=0;i<130;i++) particlesArray.push(new Particle());
+function connectParticles(){for(let a=0;a<particlesArray.length;a++){for(let b=a+1;b<particlesArray.length;b++){let dx=particlesArray[a].x-particlesArray[b].x; let dy=particlesArray[a].y-particlesArray[b].y; let dist=Math.sqrt(dx*dx+dy*dy); if(dist<120){ctx.beginPath(); ctx.strokeStyle='rgba(88,166,255,'+(1-dist/120)*0.5+')'; ctx.lineWidth=1; ctx.moveTo(particlesArray[a].x,particlesArray[a].y); ctx.lineTo(particlesArray[b].x,particlesArray[b].y); ctx.stroke();}}}}
+function animate(){ctx.clearRect(0,0,w,h); particlesArray.forEach(p=>{p.move();p.draw();}); connectParticles(); requestAnimationFrame(animate);}
 animate();
 </script>
 
