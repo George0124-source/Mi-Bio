@@ -6,14 +6,16 @@
 <title>Zyn0rX ツ — Portfolio Futurista</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
 :root{
---bg:#0d1117; --card:rgba(22,27,34,0.95);
---accent:#58a6ff; --accent-hover:#1f6feb;
---text:#c9d1d9; --muted:#8b949e; --skill-bg:#21262d;
+  --bg:#0d1117; --card:rgba(22,27,34,0.95);
+  --accent:#58a6ff; --accent-hover:#1f6feb;
+  --text:#c9d1d9; --muted:#8b949e; --skill-bg:#21262d;
 }
+
 *{box-sizing:border-box;font-family:'Inter',sans-serif;margin:0;padding:0;}
-body{background:var(--bg);color:var(--text);overflow:hidden;}
-canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;}
+body{background:var(--bg);color:var(--text);overflow-y:auto;}
+canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;pointer-events:none;}
 .card{background:var(--card); padding:40px; border-radius:16px; max-width:800px; width:90%; margin:60px auto; text-align:center; box-shadow:0 8px 30px rgba(0,0,0,0.7); backdrop-filter: blur(10px);}
 .card:hover{transform:scale(1.02);transition:0.3s;}
 .avatar{width:120px;height:120px;border-radius:50%;margin:0 auto 20px;transition:transform 0.3s;background-size:cover;background-position:center;}
@@ -29,7 +31,7 @@ p.bio{color:var(--muted);line-height:1.5;margin-bottom:20px;}
 .section{margin-top:35px;text-align:left;}
 .section h2{color:var(--accent);margin-bottom:12px;}
 .section p{color:var(--text);margin-bottom:10px;line-height:1.4;}
-footer{margin-top:25px;font-size:12px;color:var(--muted);}
+footer{margin-top:25px;font-size:12px;color:var(--muted); text-align:center;}
 </style>
 </head>
 <body>
@@ -43,7 +45,7 @@ footer{margin-top:25px;font-size:12px;color:var(--muted);}
     Coordinador Staff 1/1 en VLRP (+1k)<br>
     ＰｒｏｔｏｃｏｌＺｅｒｏ: En proceso...<br>
     UX/UI Design Architect | Visual Development 🎨<br>
-    🔹 15 años | Joven profesional en tecnología y Discord
+    🔹 14 años | Joven profesional en tecnología y Discord
   </p>
 
   <div class="links">
@@ -61,11 +63,14 @@ footer{margin-top:25px;font-size:12px;color:var(--muted);}
     <div class="skill">Web Design 🌐</div>
     <div class="skill">Moderación ✅</div>
     <div class="skill">UI/UX 🎨</div>
+    <div class="skill">Bases de datos 🗄️</div>
+    <div class="skill">Ciberseguridad 🔒</div>
+    <div class="skill">Animaciones CSS ✨</div>
   </div>
 
   <div class="section">
     <h2>Sobre mí</h2>
-    <p>Soy Zyn0rX, un joven de 15 años apasionado por la programación, diseño web y Discord. Me encanta aprender nuevas tecnologías y crear bots, servidores y experiencias interactivas.</p>
+    <p>Soy Zyn0rX, un joven de 14 años apasionado por la programación, diseño web, bots de Discord y ciberseguridad. Me encanta aprender nuevas tecnologías, crear experiencias interactivas y optimizar servidores y páginas web.</p>
   </div>
 
   <div class="section">
@@ -73,6 +78,7 @@ footer{margin-top:25px;font-size:12px;color:var(--muted);}
     <p>- Creación y mantenimiento de servidores Discord con +1k usuarios activos.</p>
     <p>- Desarrollo de bots personalizados para moderación y entretenimiento.</p>
     <p>- Diseño de páginas web para comunidades y proyectos personales.</p>
+    <p>- Pequeños proyectos de ciberseguridad y scripting.</p>
   </div>
 
   <div class="section">
@@ -80,6 +86,14 @@ footer{margin-top:25px;font-size:12px;color:var(--muted);}
     <p>- Coordinador Staff 1/1 en VLRP.</p>
     <p>- Experiencia en moderación y gestión de comunidades grandes.</p>
     <p>- Participación en proyectos de UX/UI y desarrollo visual.</p>
+    <p>- Reconocido por crear soluciones rápidas y efectivas en servidores.</p>
+  </div>
+
+  <div class="section">
+    <h2>Metas & Aspiraciones</h2>
+    <p>- Seguir aprendiendo programación avanzada y ciberseguridad.</p>
+    <p>- Crear mis propios bots y herramientas para Discord y web.</p>
+    <p>- Convertirme en un referente en tecnología para jóvenes.</p>
   </div>
 
   <footer>Última actualización: <span id="date"></span></footer>
@@ -90,7 +104,7 @@ footer{margin-top:25px;font-size:12px;color:var(--muted);}
 document.getElementById("pfp").style.backgroundImage = "url('https://media.discordapp.net/attachments/1355669514192290035/1447088623253192766/image.jpg?ex=693659cd&is=6935084d&hm=fca9852e3f7e950129178d22bbc0d6c982a299d20e91227f6b0d05398e67a245&=&format=png&width=462&height=1029')";
 document.getElementById("date").textContent = new Date().toLocaleDateString("es-ES");
 
-// Partículas conectadas
+// Partículas conectadas (futurista)
 const canvas=document.getElementById('particles');
 const ctx=canvas.getContext('2d'); let w,h;
 function resize(){ w=canvas.width=window.innerWidth; h=canvas.height=window.innerHeight;}
@@ -100,7 +114,7 @@ constructor(){this.x=Math.random()*w; this.y=Math.random()*h; this.vx=(Math.rand
 move(){this.x+=this.vx; this.y+=this.vy; if(this.x<0||this.x>w)this.vx*=-1; if(this.y<0||this.y>h)this.vy*=-1;}
 draw(){ctx.beginPath(); ctx.arc(this.x,this.y,this.size,0,Math.PI*2); ctx.fillStyle='rgba(88,166,255,0.7)'; ctx.fill();}
 }
-const particlesArray=[]; for(let i=0;i<130;i++) particlesArray.push(new Particle());
+const particlesArray=[]; for(let i=0;i<150;i++) particlesArray.push(new Particle());
 function connectParticles(){for(let a=0;a<particlesArray.length;a++){for(let b=a+1;b<particlesArray.length;b++){let dx=particlesArray[a].x-particlesArray[b].x; let dy=particlesArray[a].y-particlesArray[b].y; let dist=Math.sqrt(dx*dx+dy*dy); if(dist<120){ctx.beginPath(); ctx.strokeStyle='rgba(88,166,255,'+(1-dist/120)*0.5+')'; ctx.lineWidth=1; ctx.moveTo(particlesArray[a].x,particlesArray[a].y); ctx.lineTo(particlesArray[b].x,particlesArray[b].y); ctx.stroke();}}}}
 function animate(){ctx.clearRect(0,0,w,h); particlesArray.forEach(p=>{p.move();p.draw();}); connectParticles(); requestAnimationFrame(animate);}
 animate();
