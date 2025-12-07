@@ -17,14 +17,19 @@
 }
 
 *{box-sizing:border-box;font-family:'Inter',sans-serif;margin:0;padding:0;}
-body{background:var(--bg);color:var(--text);overflow-y:auto;}
+body{
+  background:var(--bg);
+  color:var(--text);
+  overflow-y:auto;
+  scroll-behavior: smooth;
+}
 canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;pointer-events:none;}
 
 .card{
   background: var(--card);
   padding:40px;
   border-radius:16px;
-  max-width:800px;
+  max-width:900px;
   width:90%;
   margin:60px auto;
   text-align:center;
@@ -55,20 +60,63 @@ p.bio{color:var(--muted);line-height:1.5;margin-bottom:20px;}
 }
 .btn:hover{transform:scale(1.05);box-shadow:0 0 20px rgba(88,166,255,0.4);}
 
-.skills{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:25px;}
+.skills{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:25px;}
 .skill{
   background:var(--skill-bg);
-  padding:8px 14px;
-  border-radius:10px;
+  padding:10px 16px;
+  border-radius:12px;
   font-weight:600;
   transition:all 0.3s;
-  cursor:default;
+  cursor:pointer;
+  position:relative;
 }
-.skill:hover{transform:scale(1.05);background:#1f2a36;color:#fff;}
+.skill:hover{
+  transform:scale(1.1);
+  background:#1f2a36;
+  color:#fff;
+}
+.skill:hover::after{
+  content: attr(data-info);
+  position:absolute;
+  bottom:-30px;
+  left:50%;
+  transform:translateX(-50%);
+  background:var(--accent);
+  padding:4px 8px;
+  border-radius:6px;
+  font-size:12px;
+  color:#fff;
+  white-space:nowrap;
+  opacity:1;
+}
 
-.section{margin-top:35px;text-align:left;}
+.section{
+  margin-top:35px;
+  text-align:left;
+  opacity:0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+.section.visible{
+  opacity:1;
+  transform: translateY(0);
+}
 .section h2{color:var(--accent);margin-bottom:12px;font-weight:700;}
 .section p{color:var(--text);margin-bottom:10px;line-height:1.5;}
+
+/* Proyectos animados */
+.project-card{
+  background:var(--skill-bg);
+  border-radius:12px;
+  padding:15px 20px;
+  margin:10px 0;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.project-card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 8px 20px rgba(88,166,255,0.3);
+}
+
 footer{margin-top:25px;font-size:12px;color:var(--muted); text-align:center;}
 </style>
 </head>
@@ -94,45 +142,57 @@ footer{margin-top:25px;font-size:12px;color:var(--muted); text-align:center;}
 
   <h3 style="margin-top:30px;">Lenguajes & Skills</h3>
   <div class="skills">
-    <div class="skill">Python</div>
-    <div class="skill">C++</div>
-    <div class="skill">JavaScript</div>
-    <div class="skill">Discord Bots</div>
-    <div class="skill">Web Design</div>
-    <div class="skill">Moderación</div>
-    <div class="skill">UI/UX</div>
-    <div class="skill">Bases de datos</div>
-    <div class="skill">Ciberseguridad</div>
-    <div class="skill">Animaciones CSS</div>
+    <div class="skill" data-info="Python avanzado para bots y scripts">Python</div>
+    <div class="skill" data-info="Programación de sistemas y juegos">C++</div>
+    <div class="skill" data-info="Web interactiva y bots Discord">JavaScript</div>
+    <div class="skill" data-info="HTML y CSS profesional">HTML/CSS</div>
+    <div class="skill" data-info="Node.js backend">Node.js</div>
+    <div class="skill" data-info="Bots en Discord.js">Discord.js</div>
+    <div class="skill" data-info="React básico para web">React</div>
+    <div class="skill" data-info="Diseño de interfaces y experiencia">UI/UX</div>
+    <div class="skill" data-info="SQL y MongoDB">Bases de datos</div>
+    <div class="skill" data-info="Buenas prácticas en seguridad">Ciberseguridad</div>
+    <div class="skill" data-info="Animaciones CSS y visual effects">Animaciones CSS</div>
   </div>
 
   <div class="section">
     <h2>Sobre mí</h2>
     <p>Soy Zyn0rX, 14 años, apasionado por programación, diseño web, bots de Discord y ciberseguridad. Me encanta aprender nuevas tecnologías y crear experiencias interactivas para comunidades online.</p>
-    <p>Me considero responsable, profesional y enfocado en ofrecer soluciones eficientes.</p>
+    <p>Responsable, profesional y orientado a resultados, siempre enfocado en soluciones eficientes.</p>
+    <p>Me motiva enseñar a otros, explorar nuevos frameworks y crear proyectos que combinen diseño y funcionalidad.</p>
   </div>
 
   <div class="section">
     <h2>Proyectos Destacados</h2>
-    <p>- Creación y mantenimiento de servidores Discord con +1k usuarios activos.</p>
-    <p>- Bots personalizados para moderación y entretenimiento.</p>
-    <p>- Diseño de páginas web profesionales para proyectos personales y comunidades.</p>
-    <p>- Proyectos de scripting y ciberseguridad básicos.</p>
+    <div class="project-card">
+      <strong>Bots de Discord:</strong> Moderación, minijuegos, roles automáticos y sistemas de reputación.
+    </div>
+    <div class="project-card">
+      <strong>Servidores:</strong> Gestión de comunidades +1k usuarios con reglas y moderación avanzada.
+    </div>
+    <div class="project-card">
+      <strong>Web:</strong> Páginas web profesionales y portfolios visuales interactivos.
+    </div>
+    <div class="project-card">
+      <strong>Scripts:</strong> Automatización de tareas y pruebas de seguridad básicas.
+    </div>
   </div>
 
   <div class="section">
     <h2>Logros / Experiencia</h2>
     <p>- Coordinador Staff 1/1 en VLRP.</p>
     <p>- Experiencia en moderación y gestión de comunidades grandes.</p>
-    <p>- Participación en proyectos de UX/UI y desarrollo visual.</p>
-    <p>- Reconocido por soluciones rápidas y efectivas.</p>
+    <p>- Participación activa en proyectos de UX/UI y desarrollo visual.</p>
+    <p>- Reconocido por soluciones rápidas y efectivas en servidores y bots.</p>
+    <p>- Reconocimientos internos por liderazgo y eficiencia en proyectos online.</p>
   </div>
 
   <div class="section">
     <h2>Metas & Aspiraciones</h2>
-    <p>- Seguir aprendiendo programación avanzada y ciberseguridad.</p>
-    <p>- Crear herramientas y bots profesionales para Discord y web.</p>
-    <p>- Convertirme en referente de tecnología para jóvenes y comunidades.</p>
+    <p>- Seguir aprendiendo programación avanzada, frameworks modernos y ciberseguridad.</p>
+    <p>- Crear herramientas y bots profesionales de alta calidad para Discord y web.</p>
+    <p>- Convertirme en un referente de tecnología para jóvenes y comunidades online.</p>
+    <p>- Expandir mi portfolio con proyectos profesionales que combinen diseño y código.</p>
   </div>
 
   <footer>Última actualización: <span id="date"></span></footer>
@@ -151,12 +211,25 @@ window.addEventListener('resize', resize); resize();
 class Particle{
 constructor(){this.x=Math.random()*w; this.y=Math.random()*h; this.vx=(Math.random()-0.5)*0.3; this.vy=(Math.random()-0.5)*0.3; this.size=Math.random()*1.5+0.5;}
 move(){this.x+=this.vx; this.y+=this.vy; if(this.x<0||this.x>w)this.vx*=-1; if(this.y<0||this.y>h)this.vy*=-1;}
-draw(){ctx.beginPath(); ctx.arc(this.x,this.y,this.size,0,Math.PI*2); ctx.fillStyle='rgba(88,166,255,0.2)'; ctx.fill();}
+draw(){ctx.beginPath(); ctx.arc(this.x,this.y,this.size,0,Math.PI*2); ctx.fillStyle='rgba(88,166,255,0.15)'; ctx.fill();}
 }
 const particlesArray=[]; for(let i=0;i<120;i++) particlesArray.push(new Particle());
-function connectParticles(){for(let a=0;a<particlesArray.length;a++){for(let b=a+1;b<particlesArray.length;b++){let dx=particlesArray[a].x-particlesArray[b].x; let dy=particlesArray[a].y-particlesArray[b].y; let dist=Math.sqrt(dx*dx+dy*dy); if(dist<100){ctx.beginPath(); ctx.strokeStyle='rgba(88,166,255,'+(1-dist/100)*0.1+')'; ctx.lineWidth=1; ctx.moveTo(particlesArray[a].x,particlesArray[a].y); ctx.lineTo(particlesArray[b].x,particlesArray[b].y); ctx.stroke();}}}}
+function connectParticles(){for(let a=0;a<particlesArray.length;a++){for(let b=a+1;b<particlesArray.length;b++){let dx=particlesArray[a].x-particlesArray[b].x; let dy=particlesArray[a].y-particlesArray[b].y; let dist=Math.sqrt(dx*dx+dy*dy); if(dist<100){ctx.beginPath(); ctx.strokeStyle='rgba(88,166,255,'+(1-dist/100)*0.08+')'; ctx.lineWidth=1; ctx.moveTo(particlesArray[a].x,particlesArray[a].y); ctx.lineTo(particlesArray[b].x,particlesArray[b].y); ctx.stroke();}}}}
 function animate(){ctx.clearRect(0,0,w,h); particlesArray.forEach(p=>{p.move();p.draw();}); connectParticles(); requestAnimationFrame(animate);}
 animate();
+
+// Animación scroll secciones
+const sections = document.querySelectorAll('.section');
+function checkVisibility() {
+  sections.forEach(section => {
+    const rect = section.getBoundingClientRect();
+    if(rect.top < window.innerHeight - 100){
+      section.classList.add('visible');
+    }
+  });
+}
+window.addEventListener('scroll', checkVisibility);
+checkVisibility();
 </script>
 
 </body>
